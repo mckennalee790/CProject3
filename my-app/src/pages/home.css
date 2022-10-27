@@ -1,0 +1,43 @@
+body {
+  background-color: #00002e;
+}
+
+.headings {
+  text-align: center;
+  margin: 100px;
+  font-family: 'Times New Roman',serif;
+  letter-spacing: 5px;
+  background-image: linear-gradient(
+	to right,
+	#462523 0,
+  #cb9b51 5%, 
+	#f6e27a 40%,
+	#f6f2c0 50%,
+	#f6e27a 65%,
+	#cb9b51 100%,
+	#462523 100%
+	);
+   color:transparent;
+   -webkit-background-clip:text;
+}
+
+.h1 {
+  margin: 30px;
+  text-decoration: underline;
+}
+
+.h2 {
+  font-size: 30px;
+}
+
+.gs-btn {
+  background-color: #f6e27a;
+  color: #00002e;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  margin: 30px;
+}

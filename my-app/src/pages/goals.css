@@ -1,0 +1,43 @@
+body{
+    color: white;
+    text-align: center;
+}
+
+.goals {
+    display: flex;
+    justify-content: space-around;
+}
+
+.inputGoals{
+    
+}
+
+.outputGoals{
+    
+    border: 2px solid gold;
+    text-align: center;
+}
+
+.goalheading{
+    margin: 30px;
+}
+
+input{
+    margin: 2px;
+}
+
+ul {
+    list-style: none;
+}
+
+.goals {
+  cursor: pointer;
+}
+
+.strike {
+  text-decoration: line-through;
+}
+
+.addStep {
+    margin: 10px;
+}
