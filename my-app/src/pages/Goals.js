@@ -9,7 +9,8 @@ import './goals.css';
             formgoal: '',
             formstep: '',
             goals: '',
-            steps:[{"step":"","completed":false},{"step":"","completed":true}]
+            steps:[{"step":"","completed":false},{"step":"","completed":true}],
+            allGoals:[]
         };
     
         this.handleChange = this.handleChange.bind(this);
@@ -17,7 +18,7 @@ import './goals.css';
         this.handleStepChange = this.handleStepChange.bind(this);
         this.handleStepSubmit = this.handleStepSubmit.bind(this);
         this.handleToggle = this.handleToggle.bind(this);
-        this.handleFilter = this.handleFilter.bind(this);
+        this.storeGoal = this.storeGoal.bind(this);
       }
     
       handleStepChange(event) {
@@ -48,25 +49,54 @@ import './goals.css';
         if(target.completed) {
             target.completed = false;
         } else {
-            target.completed = true;
+            target.completed = false;
         }
         console.log(this.state.steps);
         element.classList.toggle("strike");
       }
       
-      handleFilter() {
-        let filtered = this.state.steps.filter(step => {
-          return !step.completed;
+      addNewGoal() {
+        let newGoal = {
+          goal: this.state.goals,
+          steps: this.state.steps,
+
+          printSteps : function() {
+            for(let i = 0; i < this.steps.size; i++){
+              console.log(this.steps[i]);
+            }
+          }
+        };
+
+        console.log({newGoal});
+        return newGoal;
+      }
+      
+      storeGoal() {
+        this.setState({allGoals:[...this.state.allGoals,
+          this.addNewGoal()]
         });
-        this.setState({steps:filtered});
-        //event.preventDefault();
-      }  
+        this.setState({goals:""});
+        this.setState({steps:""});
+        
+        let goalsList = this.state.allGoals;
+
+        console.log(goalsList);
+        alert("Your Goal has been saved! Go to the 'View Goals' tab to see your current goals.");
+        
+      }
+      
+      printGoal() {
+        return (
+          <div>
+            
+          </div>
+          )
+      }
     
       render() {
         const goal = this.state.goals;
-        const listItems = this.state.steps.map((thisstep, index) => 
-          <li className={thisstep.completed ? "strike" : "steps"} 
-            onClick={event => this.handleToggle(event, index)}
+        const listSteps = this.state.steps.map((thisstep, index) => 
+          <li 
             key={thisstep.step}>{thisstep.step}</li>
         );
         return (
@@ -86,13 +116,14 @@ import './goals.css';
                   </label>
                   <input type="submit" value="Submit" />
                 </form>
-                <button onClick={this.handleFilter}>Submit Goal</button>
               </div>
               
               <div className="outputGoals">
-                <p>{goal}</p>
-                <ul>{listItems}</ul>
+                <p className="cGoal">{goal}</p>
+                <ul className="cSteps">{listSteps}</ul>
               </div>
+              
+              <button className="sBtn" onClick={this.storeGoal}>Submit Goal</button>
               
             </div>
         );

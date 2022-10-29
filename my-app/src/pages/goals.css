@@ -5,21 +5,28 @@ body{
 
 .goals {
     display: flex;
-    justify-content: space-around;
-}
-
-.inputGoals{
-    
-}
-
-.outputGoals{
-    
-    border: 2px solid gold;
-    text-align: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .goalheading{
     margin: 30px;
+}
+
+.cGoal{
+    font-size: 40px;
+    text-decoration: underline;
+    margin-top: 20px;
+}
+
+.cSteps{
+    font-size: 25px;
+    text-align: left;
+}
+
+.sBtn{
+    width: 180px;
+    padding: 10px;
 }
 
 input{
@@ -40,4 +47,19 @@ ul {
 
 .addStep {
     margin: 10px;
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 400px) {
+
+}
+
+/* Tablet Styles */
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+
+}
+
+/* Desktop Styles */
+@media only screen and (min-width: 961px) {
+
 }

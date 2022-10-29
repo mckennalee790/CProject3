@@ -8,7 +8,6 @@ import BootstrapNavbar from './BootstrapNavbar'
       <div className="App">  
         <BootstrapNavbar />  
       </div>  
-      // <div>"Hello World"</div>
     );  
   }  
 export default App;
