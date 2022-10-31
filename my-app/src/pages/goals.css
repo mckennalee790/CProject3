@@ -1,6 +1,7 @@
 body{
     color: white;
     text-align: center;
+    font-family: 'Times New Roman',serif;
 }
 
 .goals {
@@ -47,6 +48,51 @@ ul {
 
 .addStep {
     margin: 10px;
+}
+
+/*contact page*/
+.cHeading{
+    font-size: 40px;
+}
+
+.c-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.c-input{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputForm {
+    text-align: left;
+}
+
+.mBox {
+    height: 100px;
+    width: 200px;
+}
+
+.cBtn {
+    background-color: #f6e27a;
+  color: #00002e;
+  font-weight: bold;
+  font-size: 20px;
+  padding: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  margin: 30px;
+}
+
+.thanks{
+    padding: 100px;
+}
+
+.tHeading{
+    font-size: 100px;
 }
 
 /* Mobile Styles */
