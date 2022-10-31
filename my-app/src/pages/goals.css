@@ -16,7 +16,6 @@ body{
 
 .cGoal{
     font-size: 40px;
-    text-decoration: underline;
     margin-top: 20px;
 }
 
@@ -40,10 +39,6 @@ ul {
 
 .goals {
   cursor: pointer;
-}
-
-.strike {
-  text-decoration: line-through;
 }
 
 .addStep {
@@ -76,7 +71,7 @@ ul {
 }
 
 .cBtn {
-    background-color: #f6e27a;
+  background-color: #f6e27a;
   color: #00002e;
   font-weight: bold;
   font-size: 20px;
@@ -93,6 +88,35 @@ ul {
 
 .tHeading{
     font-size: 100px;
+}
+
+.goalViews{
+    font-size: 30px;
+    border: 2px solid white;
+    text-align: left;
+    padding: 30px;
+}
+
+.GOAL{
+    font-size: 60px;
+    text-align: left;
+      font-family: 'Times New Roman',serif;
+      background-image: linear-gradient(
+    	to right,
+    	#462523 0,
+        #cb9b51 5%, 
+    	#f6e27a 40%,
+    	#f6f2c0 50%,
+    	#f6e27a 65%,
+    	#cb9b51 100%,
+    	#462523 100%
+    	);
+       color:transparent;
+       -webkit-background-clip:text;
+}
+
+.gContainer{
+    border: 2px solid white;
 }
 
 /* Mobile Styles */

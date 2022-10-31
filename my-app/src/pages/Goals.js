@@ -88,12 +88,14 @@ let globalGoals = [];
       printGoal() {
         let output = [];
         let goals = [];
-        for(let i = 0; i < this.state.allGoals.length; i++){
-          goals.push(<li>{this.state.allGoals[i].goal}</li>);
-          for(let j = 0; j < this.state.allGoals[i].steps.length; j++){
-            goals.push(<li>{this.state.allGoals[i].steps[j]}</li>);
+          for(let i = 0; i < this.state.allGoals.length; i++){
+            goals.push(<li className="GOAL">{this.state.allGoals[i].goal}</li>);
+            for(let j = 0; j < this.state.allGoals[i].steps.length; j++){
+              goals.push(<li>{this.state.allGoals[i].steps[j]}</li>);
+            }
+            output.push(<div className="gContainer">goals[i]</div>);
           }
-        }
+        
         return goals;
       }
       
@@ -139,8 +141,9 @@ let globalGoals = [];
               
               <div>
                 <p>List of Goals:</p>
-                <ul>{goals}</ul>
-                <p>allGoals[0].steps</p>
+                <div className="goalViews">
+                  <ul>{goals}</ul>
+                </div>
               </div>
             </div>);
         //}
