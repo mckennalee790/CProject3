@@ -5,7 +5,7 @@ import BootstrapNavbar from '../BootstrapNavbar'
 import './goals.css';
 let globalGoals = [];
     
-    class Goals extends React.Component {
+    export default class Goals extends React.Component {
       constructor(props) {
         super(props);
          this.state = {
@@ -14,7 +14,9 @@ let globalGoals = [];
             goals: '',
             steps:[],
             allGoals:[],
-            path: true,
+            path: props.view,
+            gGoals: globalGoals,
+            display: false,
         };
     
         this.handleChange = this.handleChange.bind(this);
@@ -22,7 +24,13 @@ let globalGoals = [];
         this.handleStepChange = this.handleStepChange.bind(this);
         this.handleStepSubmit = this.handleStepSubmit.bind(this);
         this.storeGoal = this.storeGoal.bind(this);
-        this.viewGoals = this.viewGoals.bind(this);
+        this.printGoal = this.printGoal.bind(this);
+        this.printDaily = this.printDaily.bind(this);
+        this.toggle = this.toggle.bind(this);
+      }
+    
+      toggle() {
+        this.setState({display: true});
       }
     
       handleStepChange(event) {
@@ -51,15 +59,11 @@ let globalGoals = [];
         let newGoal = {
           goal: this.state.goals,
           steps: this.state.steps,
-
-          printSteps : function() {
-            for(let i = 0; i < this.steps.size; i++){
-              console.log(this.steps[i]);
-            }
-          }
         };
-        globalGoals.push(newGoal);
-        console.log({newGoal});
+        
+        for(let i = 0; i < newGoal.steps.length; i++){
+          globalGoals.push(newGoal.steps[i]);
+        }
         return newGoal;
       }
       
@@ -73,8 +77,7 @@ let globalGoals = [];
         
         let goalsList = this.state.allGoals;
 
-        console.log(goalsList);
-        alert("Your Goal has been saved! Go to the 'View Goals' tab to see your current goals.");
+        alert("Your Goal has been saved! Click 'View Goals' to see your current goals.");
       }
       
       printSteps(){
@@ -86,33 +89,31 @@ let globalGoals = [];
       }
       
       printGoal() {
-        let output = [];
         let goals = [];
           for(let i = 0; i < this.state.allGoals.length; i++){
             goals.push(<li className="GOAL">{this.state.allGoals[i].goal}</li>);
             for(let j = 0; j < this.state.allGoals[i].steps.length; j++){
               goals.push(<li>{this.state.allGoals[i].steps[j]}</li>);
             }
-            output.push(<div className="gContainer">goals[i]</div>);
           }
-        
         return goals;
       }
       
-      viewGoals(){
-        this.setState({path:false});
-  
-        console.log("viewGoals has been called");
-        console.log("global: " + globalGoals);
+      printDaily() {
+        let steps = [];
+          for(let i = 0; i < this.state.gGoals.length; i++){
+            steps.push(<li className="dSteps">{this.state.gGoals[i]}</li>);
+          }
+        return steps;
       }
         
       render() {
         const goal = this.state.goals;
         const listSteps = this.printSteps();
         const goals = this.printGoal();
-        const view = true;
+        const steps = this.printDaily();
         
-        if(this.state.path === true){
+        if(this.state.display == false) {
         return (
             <div class="goals">
               <div className="inputGoals">
@@ -138,50 +139,27 @@ let globalGoals = [];
               </div>
               
               <button className="cBtn" onClick={this.storeGoal}>Submit Goal</button>
+              <button className="cBtn" onClick={this.toggle}>View Goals</button>
+           
+            </div> )}
+            if(this.state.display == true){
+            return ( 
+            <div className="displayContainer">
+             <div className="goalsList">
+                <h1 className="tHeading">My Goals:</h1>
+                 <div className="goalViews">
+                   <ul>{goals}</ul>
+                 </div>
+              </div>
               
-              <div>
-                <p>List of Goals:</p>
-                <div className="goalViews">
-                  <ul>{goals}</ul>
+              <div className="todoList">
+                <h1 className="dHeading">Daily To Do List:</h1>
+                <div className="dToDo">
+                  <ul>{steps}</ul>
                 </div>
               </div>
-            </div>);
-        //}
-        //if (this.state.path === true) {
-          //return (
-            // <div>
-            //   <p>List of Goals:</p>
-            //   <p>allGoals[0].goal</p>
-            //   <p>allGoals[0].steps</p>
-            // </div>
-            //);
-        }
-        
+            </div>)
       }
     }
     
-    // class View extends React.Component {
-    //   constructor(props) {
-    //     super(props);
-    //   }
-        
-    //     render() {
-    //       this.viewGoals();
-    //       // const { allGoals } = this.props;
-    //       // console.log({allGoals});
-    //       // const { path } = false;
-    //       return(
-    //           <div>
-    //               <p>
-    //                   ViewGoals return
-    //               </p>
-    //           </div>
-    //       );
-
-    //     }
-    // }
-   
-    export default Goals;
-    
-
-    
+  }

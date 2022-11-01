@@ -11,10 +11,10 @@ function Home() {
   return (
       <div class="headings">
         <div class="h1">
-          <HomeP message="Habit Builder" />
+          <HomeP message="Daily Habits" />
         </div>
         <div class="h2">
-          <HomeP message="Set Goals and Track Your Progress" />
+          <HomeP message="Set Goals and Build Good Habits" />
         </div>
         <form action="/goals">
           <button class="gs-btn">Get Started</button>

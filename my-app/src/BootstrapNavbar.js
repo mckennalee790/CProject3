@@ -11,7 +11,6 @@ import Home from './pages/Home';
 import NoPage from './pages/NoPage';
 import Contact from './pages/Contact';
 import Goals from './pages/Goals';
-import View from './pages/Goals';
 
 class BootstrapNavbar extends React.Component{
     
@@ -34,13 +33,10 @@ class BootstrapNavbar extends React.Component{
                                     <Nav className="mr-auto">
                                         <Nav.Link href="/">Home</Nav.Link>
                                         <Nav.Link href="/goals">Set Goals</Nav.Link>
-                                        <Nav.Link href="/views">View Goals</Nav.Link>
                                         <NavDropdown title="About Us" id="basic-nav-dropdown">
                                             <NavDropdown.Item href="/contact">Contact</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action/3.2">Our Story</NavDropdown.Item>
-                                            <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                                             <NavDropdown.Divider />
-                                            <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                                            <NavDropdown.Item href="https://www.wikihow.com/Set-Goals">How To Set Goals</NavDropdown.Item>
                                         </NavDropdown>
                                     </Nav>
                                 </Navbar.Collapse>
@@ -51,7 +47,6 @@ class BootstrapNavbar extends React.Component{
                                 <Route path="*" element={<NoPage />}/>
                                 <Route path="contact" element={<Contact/>}/>
                                 <Route path="goals" element={<Goals/>}/>
-                                <Route path="views" element={<Goals/>}/> 
                             </Routes>
                         </Router>
                     </div>

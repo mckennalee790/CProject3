@@ -75,24 +75,21 @@ ul {
   color: #00002e;
   font-weight: bold;
   font-size: 20px;
-  padding: 20px;
+  padding: 10px;
   text-decoration: none;
   cursor: pointer;
   border: none;
-  margin: 30px;
+  margin: 10px;
+  width: 140px;
+  
 }
 
 .thanks{
     padding: 100px;
 }
 
-.tHeading{
-    font-size: 100px;
-}
-
 .goalViews{
     font-size: 30px;
-    border: 2px solid white;
     text-align: left;
     padding: 30px;
 }
@@ -115,8 +112,31 @@ ul {
        -webkit-background-clip:text;
 }
 
-.gContainer{
-    border: 2px solid white;
+/*view page*/
+.displayContainer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.dSteps {
+    font-size: 30px;
+    color: white;
+}
+
+.dToDo {
+    text-align: left;
+    border: 1px solid white;
+    padding: 20px;
+}
+
+.tHeading{
+    font-size: 50px;
+    
+}
+
+.dHeading{
+    font-size: 50px;
+    margin-bottom: 60px;
 }
 
 /* Mobile Styles */
