@@ -1,7 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-//import View from './ViewGoals';
-import BootstrapNavbar from '../BootstrapNavbar'
 import './goals.css';
 let globalGoals = [];
     
@@ -14,7 +12,6 @@ let globalGoals = [];
             goals: '',
             steps:[],
             allGoals:[],
-            path: props.view,
             gGoals: globalGoals,
             display: false,
         };
@@ -113,7 +110,7 @@ let globalGoals = [];
         const goals = this.printGoal();
         const steps = this.printDaily();
         
-        if(this.state.display == false) {
+        if(this.state.display === false) {
         return (
             <div class="goals">
               <div className="inputGoals">
@@ -142,7 +139,7 @@ let globalGoals = [];
               <button className="cBtn" onClick={this.toggle}>View Goals</button>
            
             </div> )}
-            if(this.state.display == true){
+            if(this.state.display === true){
             return ( 
             <div className="displayContainer">
              <div className="goalsList">

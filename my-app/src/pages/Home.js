@@ -11,14 +11,17 @@ function Home() {
   return (
       <div class="headings">
         <div class="h1">
-          <HomeP message="Daily Habits" />
+          <HomeP message="Habit Builder" />
         </div>
         <div class="h2">
-          <HomeP message="Set Goals and Build Good Habits" />
+          <HomeP message="Form Habits to Achieve Your Goals" />
         </div>
         <form action="/goals">
           <button class="gs-btn">Get Started</button>
         </form>
+        <div className="gitLink">
+          <a className="gitLink" href="https://github.com/mckennalee790/CProject3">GitHub Link</a>
+        </div>
       </div>
   );
 }

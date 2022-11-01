@@ -1,10 +1,8 @@
 import React from 'react'
 import {
-BrowserRouter as Router,
-Switch,
+BrowserRouter,
 Route,
 Routes,
-useParams,
 } from "react-router-dom";
 import { Navbar,Nav,NavDropdown,Form,FormControl,Button } from 'react-bootstrap'
 import Home from './pages/Home';
@@ -13,20 +11,13 @@ import Contact from './pages/Contact';
 import Goals from './pages/Goals';
 
 class BootstrapNavbar extends React.Component{
-    
-    constructor(props) {
-        super(props);
-         this.state = {
-            view: true,
-        };
-    }
         
     render(){
         return(
             <div>
                 <div className="row">
                     <div className="col-md-12">
-                        <Router>
+                        <BrowserRouter>
                             <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
                                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                                 <Navbar.Collapse id="basic-navbar-nav">
@@ -44,11 +35,11 @@ class BootstrapNavbar extends React.Component{
                             <br />
                             <Routes>
                                 <Route exact path="/" element={<Home />}/>
-                                <Route path="*" element={<NoPage />}/>
                                 <Route path="contact" element={<Contact/>}/>
                                 <Route path="goals" element={<Goals/>}/>
+                                <Route path="*" element={<NoPage />}/>
                             </Routes>
-                        </Router>
+                        </BrowserRouter>
                     </div>
                 </div>
                 
